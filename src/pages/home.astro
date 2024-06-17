@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/navBar.astro';
+import Card from '../components/Card.astro';
+
+
+const data = [
+    {
+        name: 'Amber',
+        color: '#3394EB',
+        distance: '7 km',
+        img: 'c_1.png',
+        group: '["cats"]'
+    },
+    {
+        name: 'Kitty',
+        color: '#FFF59E',
+        distance: '7 km',
+        img: 'c_2.png',
+        group: '["cats"]'
+    },
+    {
+        name: 'Conny',
+        color: '#81CFE9',
+        distance: '7 km',
+        img: 'conny 1.png',
+        group: '["rabbits"]'
+    },
+    {
+        name: 'Paco',
+        color: '#CAEDA1',
+        distance: '7 km',
+        img: 'paco.png',
+        group: '["birds"]'
+    },
+    {
+        name: 'Tobby',
+        color: '#FFD68F',
+        distance: '7 km',
+        img: 'image 1 (1).png',
+        group: '["dogs"]'
+    },
+    {
+        name: 'Doggi',
+        color: '#7E634E',
+        distance: '7 km',
+        img: 'doggi 1 (1).png',
+        group: '["dogs"]'
+    },
+]
+---
+
+<Layout title="Welcome to PetFinder">
+	<main class="relative h-[100%] px-4">
+        <section class="flex flex-row justify-between items-center">
+            <div class="section">
+                <div class=" flex flex-row items-center">
+                    <span class="text-xsm">Location 
+                    </span>
+                    <svg class="w-2 h-2 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                      </svg>
+                </div>
+                <p class="text-sm"><span class="font-extrabold">TGU,</span> HN</p>
+            </div>
+            <div class="section flex flex-row">
+                <a href="/search" class="rounded-xl p-1 mr-1  btn-act">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                      </svg>
+                      
+                </a>
+                <a href="/notifications"  class="rounded-xl p-1  btn-act">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z"/>
+                      </svg>
+                      
+                </a>
+            </div>
+        </section>
+
+        <section class="my-2 relative">
+            <center class="relative">
+                <div class="contImage relative">
+                    <a class="bg-[#FDD153] p-1 px-4 mt-5 rounded-lg absolute text-white bottom-5 left-5 text-sm"href="/community/join">Join Now</a>
+                    <img src="/Mask Group.png" alt="">
+
+                </div>
+            </center>
+        </section>
+            
+        <section>
+            <p>Categories</p>
+            <div class="flex overflow-x-scroll items-center catsOver my-2">
+                <div class="rounded-xl option p-2  mx-2 active" data-option="*">
+                    All
+                </div>
+                <div class="rounded-xl option p-2 mx-2"  data-option="dogs">
+                    Dogs
+                </div>
+                <div class="rounded-xl option p-2 mx-2"  data-option="cats">
+                    Cats
+                </div>
+                <div class="rounded-xl option p-2 mx-2" data-option="birds">
+                    Birds
+                </div>
+                <div class="rounded-xl option p-2 mx-2" data-option="rabbits">
+                    Rabbits
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-9" >
+            <div class="flex flex-row justify-between items-center">
+                <p>Pets</p>
+                <a href="/pets" class="text-sm">
+                    <div class="flex flex-row items-center text-[#FFA07A]">
+                        <p>See all</p>
+                        <div class="bg-[#FFA07A] ml-1 rounded-md p-[2px]">
+                            <svg class="w-3 h-3 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                              </svg>
+                        </div>
+                          
+                    </div></a>
+            </div>
+            <div id="classesTableBody" class="grid w-full">
+                {
+                    data.map(elem => {
+                        return (
+                            <Card name={elem.name} color={elem.color} img={elem.img }distance={elem.distance} group={elem.group}/>
+                        )
+                    })
+                }
+            </div>
+        </section>
+    </main>
+    <NavBar/>
+</Layout>
+
+<style>
+.text-xsm {
+	font-size: 0.6rem;
+}
+.contImage {
+    width: fit-content;
+}
+.catsOver::-webkit-scrollbar {
+  display: none;
+}
+.text {
+    font-size: 0.7rem
+}
+.imgPromo {
+    height: 100%;
+    right: -0rem;
+    bottom: 0px;
+    position: absolute;
+}
+.catsOver {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+.option.active {
+    background-color: #FFA07A;
+    color: white;
+}
+.option, .btn-act { 
+    background-color: #F7F7F8;
+    font-size: 0.7rem;
+}
+#classesTableBody {
+    grid-template-columns: 1fr 1fr !important;
+}
+@media (prefers-color-scheme: dark) {
+    .option, .btn-act { 
+        background-color: #FFFFFF2F;
+    }
+}
+</style>
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.1.0/shuffle.min.js" integrity="sha512-r8mIpk3ypCMwNxH6srRZGbjHQlOFt3Mq2vrZ/iymx6g9JUqTeVavofeX6gbrxAC74X5HmBy5gxyhCm6OiXrM0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+		
+<script is:inline  type="module">
+    const options = document.querySelectorAll('[data-option]');
+    const Shuffle = window.Shuffle;
+    const element = document.getElementById('classesTableBody');
+    const sizer = element.querySelector('.js-shuffle-sizer');
+    const shuffleInstance = new Shuffle(element, {
+      itemSelector: '.item',
+      sizer: sizer, 
+    });
+    for (const element of options) {
+        element.addEventListener('click', (e)=>{
+            const value = e.target.getAttribute('data-option');
+            console.log(value);
+            const active = document.getElementsByClassName('active');
+            active[0].classList.remove('active');
+            e.target.classList.add('active')
+
+            if (value == '*') {
+                shuffleInstance.filter();
+                return;
+            }
+            shuffleInstance.filter([value]);
+        })
+    }
+
+    
+</script>

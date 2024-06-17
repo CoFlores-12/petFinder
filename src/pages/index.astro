@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to PetFinder">
+	<main class="relative  h-[100%]">
+		<div class="absolute flex justify-center items-center overflow-hidden">
+			<img src="./mobileMain.png" width="100%" alt="">
+		</div>
+		<div class="relative h-[100%] flex flex-col justify-end items-center px-10">
+			<h3 class="text-center text-2xl font-semibold">Find Your <span class="text-[#FE8A5B]">Dream</span><br>Pet Here</h3>
+			<h5 class="text-xsm text-gray-500  my-2">Join us and discover the <br>best pet in your location</h5>
+			<a href="/home"><button class="px-8 my-2 py-2 rounded-lg bg-[#FE8A5B] bg-gradient-to-b to-[#FFA07A] text-white from-[#FE8A5B]">Continue</button></a>
+
+			<h6 class="text-xsm mt-6 text-gray-500">Support</h6>
+		</div>
+	</main>
+</Layout>
+
+<style>
+.text-xsm {
+	font-size: 0.6rem;
+}
+</style>
